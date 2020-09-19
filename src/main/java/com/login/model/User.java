@@ -1,6 +1,6 @@
 package com.login.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,11 +28,11 @@ public class User {
 
 	private String rol;
 
-	private Date birthdaydate;
+	private LocalDate birthdaydate;
 
 	private String address;
 
 	private String email;
 
-	private Integer phonenumber;
+	private Long phonenumber;
 }
