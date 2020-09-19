@@ -21,3 +21,8 @@ mvnw.cmd
 *.iws
 *.iml
 *.ipr
+
+#Eclipse
+.metadata
+bin/
+tmp/
