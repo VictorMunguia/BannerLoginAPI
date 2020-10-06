@@ -1,7 +1,6 @@
 package com.login.domain;
 
 import java.time.LocalDate;
-
 import lombok.Data;
 
 @Data
@@ -17,7 +16,7 @@ public class UserDTO {
 
 	private String lastname;
 
-	private String rol;
+	private String roles;
 
 	private LocalDate birthdaydate;
 
@@ -26,5 +25,7 @@ public class UserDTO {
 	private String email;
 
 	private Long phonenumber;
+	
+	private Integer active;
 
 }

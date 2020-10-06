@@ -34,7 +34,7 @@ public class LoginController {
 	}
 	
 	@ResponseStatus(value = HttpStatus.CREATED)
-	@PostMapping(value = "/createuser")
+	@PostMapping(value = "/createuser",  produces = "application/json")
 	public UserIdDTO createUser( @RequestBody UserDTO userDTO) {
 		log.info("Calling createUser");
 		return loginService.createUser(userDTO);

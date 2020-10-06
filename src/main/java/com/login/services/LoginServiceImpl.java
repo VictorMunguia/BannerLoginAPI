@@ -3,6 +3,7 @@ package com.login.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.login.controllers.LoginController;
@@ -23,6 +24,9 @@ public class LoginServiceImpl implements LoginService {
 	
 	@Autowired
 	private LoginTransformer loginTransformer;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder; 
 
 	@Override
 	public List<User> getUsers() {
@@ -32,6 +36,11 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public UserIdDTO createUser(UserDTO userDTO) {
+		if(userDTO.getActive() == null) {
+			userDTO.setActive(1);
+		}
+		
+		userDTO.setPassword(passwordEncoder.encode(userDTO.getPassword()));
 		String id = loginRepository.save(loginTransformer.transformer(userDTO)).getId();
 		log.info("User created: " + userDTO);
 		return new UserIdDTO(id);
